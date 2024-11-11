@@ -12,12 +12,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Crear el tablero
     function createBoard() {
-        container.innerHTML = "";
-        board = Array(9).fill(null);
-        currentPlayer = "X";
-        modal.style.display = "none"; // Cerrar el modal si está abierto
-        viewMessageButton.style.display = "none"; // Ocultar el botón "Ver mensaje"
+        container.innerHTML = ""; // Limpiar el tablero
+        board = Array(9).fill(null); // Reiniciar el estado del tablero
+        currentPlayer = "X"; // Reiniciar el turno al jugador humano
+        modal.style.display = "none"; // Ocultar el modal
+        viewMessageButton.style.display = "none"; // Ocultar botón de mensaje
 
+        // Crear celdas del tablero
         for (let i = 0; i < 9; i++) {
             const cell = document.createElement("div");
             cell.classList.add("cell");
@@ -35,11 +36,11 @@ document.addEventListener("DOMContentLoaded", function () {
             makeMove(index, currentPlayer);
 
             if (checkWin(currentPlayer)) {
-                showResultModal(`¡${currentPlayer} gana! 🎉`, currentPlayer === "X");
+                showResultModal(`¡${currentPlayer} gana! 🎉`);
             } else if (isDraw()) {
-                showResultModal("¡Es un empate! 🤝", false);
+                showResultModal("¡Es un empate! 🤝");
             } else {
-                currentPlayer = "O"; // Cambiar a la IA
+                currentPlayer = "O"; // Turno de la IA
                 setTimeout(aiMove, 500);
             }
         }
@@ -58,11 +59,11 @@ document.addEventListener("DOMContentLoaded", function () {
         makeMove(move, currentPlayer);
 
         if (checkWin(currentPlayer)) {
-            showResultModal(`¡${currentPlayer} gana! 🎉`, false); // Gana la IA
+            showResultModal(`¡${currentPlayer} gana! 🎉`);
         } else if (isDraw()) {
-            showResultModal("¡Es un empate! 🤝", false);
+            showResultModal("¡Es un empate! 🤝");
         } else {
-            currentPlayer = "X"; // Cambiar de nuevo al jugador humano
+            currentPlayer = "X"; // Turno del jugador humano
         }
     }
 
@@ -75,15 +76,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Mostrar modal con el resultado
-    function showResultModal(message, isWin) {
+    function showResultModal(message) {
         resultMessage.textContent = message;
         modal.style.display = "flex"; // Mostrar el modal
-
-        if (isWin && currentPlayer === "X") {
-            viewMessageButton.style.display = "inline-block"; // Mostrar botón "Ver mensaje"
-        } else {
-            viewMessageButton.style.display = "none";
-        }
     }
 
     // Verificar empate
@@ -168,20 +163,19 @@ document.addEventListener("DOMContentLoaded", function () {
     // Cambiar nivel de dificultad
     difficultySelect.addEventListener("change", function () {
         difficulty = difficultySelect.value;
-        createBoard();
+        createBoard(); // Reiniciar el juego al cambiar dificultad
     });
 
     // Redirigir a mensaje.html al hacer clic en "Ver mensaje"
     viewMessageButton.addEventListener("click", () => {
-        window.location.href = "mensaje.html"; // Redirige a la página
+        window.location.href = "mensaje.html";
     });
 
-    // Evento para reiniciar el juego desde el modal
+    // Reiniciar el juego al hacer clic en "Reiniciar"
     restartButton.addEventListener("click", function () {
-        modal.style.display = "none"; // Cerrar el modal
         createBoard(); // Reiniciar el tablero
     });
 
-    // Iniciar tablero
+    // Inicializar el tablero
     createBoard();
 });
