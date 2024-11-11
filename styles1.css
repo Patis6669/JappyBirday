@@ -1,0 +1,88 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(145deg, #141e30, #243b55);
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    overflow-x: hidden;
+    padding: 20px;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    padding: 20px;
+    transition: max-height 0.5s ease; 
+}
+
+.title {
+    text-align: center;
+    font-size: 2rem;
+    color: #ffff;
+    text-shadow: 0 0 10px #00ffff;
+    padding: 10px 0;
+}
+
+.message-box {
+    max-height: 100%;
+    overflow: visible;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 188, 212, 0.5);
+}
+
+.paragraph {
+    margin: 10px ;
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: justify;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.5s ease, max-height 0.5s ease;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 10px;
+}
+
+.paragraph.visible {
+    opacity: 1;
+    max-height: 500px;
+}
+
+.floating-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #00bcd4;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0, 188, 212, 0.4);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.floating-button:hover {
+    background: #0097a7;
+    transform: scale(1.1);
+}
+
+.signature {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #ffff;
+    text-shadow: 0 0 5px #00ffff;
+}
