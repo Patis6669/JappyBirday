@@ -77,9 +77,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Mostrar modal con el resultado
     function showResultModal(message) {
-        resultMessage.textContent = message;
-        modal.style.display = "flex"; // Mostrar el modal
+    resultMessage.textContent = message;
+    modal.style.display = "flex"; // Mostrar el modal
+
+    // Mostrar el botón "Ver mensaje" solo si el jugador humano gana
+    if (message.includes("X gana")) {
+        viewMessageButton.style.display = "inline-block";
+    } else {
+        viewMessageButton.style.display = "none";
     }
+    }
+
 
     // Verificar empate
     function isDraw() {
