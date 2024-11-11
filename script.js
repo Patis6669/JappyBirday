@@ -15,8 +15,8 @@ document.addEventListener("DOMContentLoaded", function () {
         container.innerHTML = "";
         board = Array(9).fill(null);
         currentPlayer = "X";
-        modal.style.display = "none";
-        viewMessageButton.style.display = "none";
+        modal.style.display = "none"; // Cerrar el modal si está abierto
+        viewMessageButton.style.display = "none"; // Ocultar el botón "Ver mensaje"
 
         for (let i = 0; i < 9; i++) {
             const cell = document.createElement("div");
@@ -77,10 +77,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // Mostrar modal con el resultado
     function showResultModal(message, isWin) {
         resultMessage.textContent = message;
-        modal.style.display = "flex";
+        modal.style.display = "flex"; // Mostrar el modal
 
         if (isWin && currentPlayer === "X") {
-            viewMessageButton.style.display = "inline-block";
+            viewMessageButton.style.display = "inline-block"; // Mostrar botón "Ver mensaje"
         } else {
             viewMessageButton.style.display = "none";
         }
@@ -176,8 +176,11 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.href = "mensaje.html"; // Redirige a la página
     });
 
-    // Evento para reiniciar el juego
-    restartButton.addEventListener("click", createBoard);
+    // Evento para reiniciar el juego desde el modal
+    restartButton.addEventListener("click", function () {
+        modal.style.display = "none"; // Cerrar el modal
+        createBoard(); // Reiniciar el tablero
+    });
 
     // Iniciar tablero
     createBoard();
