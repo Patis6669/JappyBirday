@@ -86,3 +86,79 @@ body {
     color: #ffff;
     text-shadow: 0 0 5px #00ffff;
 }
+
+#back {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+}
+
+#back button {
+    background-color: #00bcd4;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+    transition: all 0.3s ease-in-out;
+}
+
+#back button:hover {
+    background-color: #0097a7;
+    transform: scale(1.1);
+}
+
+@media only screen and (max-width: 428px) {
+    body {
+        padding: 10px; /* Reducir el padding para pantallas pequeñas */
+        font-size: 14px; /* Reducir tamaño de fuente general */
+    }
+
+    .container {
+        width: 100%; /* Hacer que ocupe todo el ancho */
+        max-width: none; /* No limitar el ancho */
+        border-radius: 5px; /* Reducir las esquinas redondeadas */
+        padding: 15px; /* Ajustar el padding interno */
+    }
+
+    .title {
+        font-size: 1.5rem; /* Reducir tamaño del título */
+        text-shadow: 0 0 8px #00ffff; /* Suavizar el resplandor */
+        padding: 8px 0;
+    }
+
+    .message-box {
+        box-shadow: none; /* Eliminar sombra para un diseño más limpio */
+        padding: 10px; /* Ajustar el padding interno */
+    }
+
+    .paragraph {
+        font-size: 0.9rem; /* Reducir tamaño de texto */
+        padding: 5px 10px; /* Ajustar los márgenes internos */
+    }
+
+    .floating-button {
+        bottom: 10px; /* Acercar el botón flotante al borde inferior */
+        right: 10px; /* Acercar el botón al borde derecho */
+        padding: 10px 20px; /* Reducir el tamaño del botón */
+        font-size: 0.9rem; /* Reducir el tamaño del texto */
+    }
+
+    #back {
+        top: 10px; /* Ajustar posición superior del botón de regreso */
+        left: 10px; /* Ajustar posición izquierda */
+    }
+
+    #back button {
+        padding: 8px 12px; /* Reducir tamaño del botón */
+        font-size: 1.2rem; /* Reducir tamaño del ícono */
+        box-shadow: 0 0 10px rgba(0, 255, 255, 0.5); /* Suavizar sombra */
+    }
+
+    .signature {
+        font-size: 1rem; /* Reducir tamaño de la firma */
+    }
+}
