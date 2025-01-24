@@ -173,11 +173,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Redirigir a mensaje.html al hacer clic en "Ver mensaje"
     viewMessageButton.addEventListener("click", () => {
-        window.location.href = "mensaje.html"; // Redirige a la página
+    window.location.href = "mensaje.html"; // Redirige a la página
     });
-
-    // Evento para reiniciar el juego
-    restartButton.addEventListener("click", createBoard);
 
     // Iniciar tablero
     createBoard();
